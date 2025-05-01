@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XOX Game</title>
+    <title>XOX Oyunu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,7 +28,7 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black m-0 p-0 w-screen h-screen overflow-hidden flex justify-center items-center">
+<body class="bg-black m-0 p-0 w-screen h-screen overflow-hidden flex justify-center items-center orientation-landscape">
     <div class="container text-center">
         <div id="board">
             <div class="cell border-neon-white" data-index="0"></div>
@@ -55,6 +54,19 @@
     <!-- Settings Panel (Ayarlar) -->
     <div id="settings-panel" class="fixed top-0 right-0 w-80 h-full bg-black bg-opacity-90 text-white p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out z-50 border-l-2 border-neon-white">
         <h2 class="text-2xl font-bold mb-6 text-center">Ayarlar</h2>
+        
+        <!-- Orientation Toggle -->
+        <div class="mb-6">
+            <h3 class="text-xl mb-3 border-b border-gray-600 pb-2">Ekran Yönü</h3>
+            <div class="flex items-center justify-between mb-4">
+                <span>Yatay Mod</span>
+                <label class="switch relative inline-block w-14 h-7">
+                    <input type="checkbox" id="orientation-toggle">
+                    <span class="slider absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-700 transition-all duration-300 rounded-full before:absolute before:h-5 before:w-5 before:left-1 before:bottom-1 before:bg-white before:rounded-full before:transition-all"></span>
+                </label>
+                <span>Dikey Mod</span>
+            </div>
+        </div>
         
         <!-- Background Settings -->
         <div class="mb-6">

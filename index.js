@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const changeBgBtn = document.getElementById('change-bg-btn');
     const resetBgBtn = document.getElementById('reset-bg-btn');
     const closeSettingsBtn = document.getElementById('close-settings-btn');
+    const orientationToggle = document.getElementById('orientation-toggle');
     
     // Message settings inputs
     const xWinMessage = document.getElementById('x-win-message');
@@ -41,6 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
         [0, 4, 8], [2, 4, 6]             // diagonals
     ];
+    
+    // Toggle orientation
+    orientationToggle.addEventListener('change', function() {
+        const body = document.body;
+        if (this.checked) {
+            // Portrait mode
+            body.classList.remove('orientation-landscape');
+            body.classList.add('orientation-portrait');
+            console.log("Switched to portrait orientation");
+        } else {
+            // Landscape mode
+            body.classList.remove('orientation-portrait');
+            body.classList.add('orientation-landscape');
+            console.log("Switched to landscape orientation");
+        }
+    });
     
     function handleCellClick(e) {
         console.log("Cell clicked");
@@ -397,6 +414,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // This allows the same file to be selected again
         this.value = '';
     });
+    
+    // Check orientation on load and set the toggle accordingly
+    function checkOrientation() {
+        // Check if window is in portrait mode (height > width)
+        const isPortrait = window.innerHeight > window.innerWidth;
+        
+        // Update toggle and body class
+        orientationToggle.checked = isPortrait;
+        if (isPortrait) {
+            document.body.classList.remove('orientation-landscape');
+            document.body.classList.add('orientation-portrait');
+        } else {
+            document.body.classList.remove('orientation-portrait');
+            document.body.classList.add('orientation-landscape');
+        }
+    }
+    
+    // Call on load
+    checkOrientation();
+    
+    // Also check on window resize
+    window.addEventListener('resize', checkOrientation);
     
     // Add event listeners to cells
     cells.forEach(cell => {

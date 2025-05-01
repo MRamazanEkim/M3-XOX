@@ -1,0 +1,23 @@
+{
+  "name": "m3-xox",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MRamazanEkim/M3-XOX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MRamazanEkim/M3-XOX/issues"
+  },
+  "homepage": "https://github.com/MRamazanEkim/M3-XOX#readme",
+  "description": "",
+  "devDependencies": {
+    "electron": "^35.2.1"
+  }
+}
